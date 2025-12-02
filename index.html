@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Portfolio - Behavioral Health Technician</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f7fa;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #2c5f7c 0%, #4a8ba8 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        nav {
+            background-color: white;
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        nav a {
+            color: #2c5f7c;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #4a8ba8;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        section {
+            background: white;
+            margin: 2rem 0;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        section h2 {
+            color: #2c5f7c;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #4a8ba8;
+            font-size: 1.8rem;
+        }
+        
+        .about-content {
+            display: grid;
+            gap: 1.5rem;
+        }
+        
+        .philosophy {
+            background-color: #f0f7fa;
+            padding: 1.5rem;
+            border-left: 4px solid #4a8ba8;
+            border-radius: 4px;
+            font-style: italic;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .skill-category {
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 6px;
+            border-top: 3px solid #4a8ba8;
+        }
+        
+        .skill-category h3 {
+            color: #2c5f7c;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .skill-category ul {
+            list-style: none;
+        }
+        
+        .skill-category li {
+            padding: 0.4rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .skill-category li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4a8ba8;
+            font-weight: bold;
+        }
+        
+        .experience-item, .cert-item, .case-study {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .experience-item:last-child, .cert-item:last-child, .case-study:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .experience-item h3, .case-study h3 {
+            color: #2c5f7c;
+            margin-bottom: 0.5rem;
+        }
+        
+        .experience-meta {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        
+        .case-study {
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 6px;
+        }
+        
+        .case-label {
+            display: inline-block;
+            background-color: #4a8ba8;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .contact-icon {
+            background-color: #4a8ba8;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        footer {
+            background-color: #2c5f7c;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .editable {
+            background-color: #fff9e6;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+                align-items: center;
+            }
+            
+            section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Zico Smith</h1>
+        <p>Behavioral Health Technician</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#credentials">Credentials</a></li>
+            <li><a href="#case-studies">Case Studies</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <p>I am a dedicated Behavioral Health Technician with over 3 years of experience at St. John's Episcopal Hospital, supporting individuals with mental health and behavioral challenges. My background uniquely combines hands-on patient care with strong organizational and administrative skills developed through my previous role as Finance Director at Hunter College. This diverse experience has equipped me with exceptional interpersonal communication abilities and a results-driven approach to healthcare delivery.</p>
+                
+                <div class="philosophy">
+                    <strong>My Care Philosophy:</strong><br>
+                    I believe in collaborative, patient-centered care that prioritizes each individual's unique needs and circumstances. My approach emphasizes building trusting relationships with patients, working effectively within interdisciplinary healthcare teams, and maintaining the highest standards of confidentiality and professionalism. Through emotional support and evidence-based interventions, I strive to create an environment where patients feel safe, heard, and empowered in their journey toward wellness.
+                </div>
+            </div>
+        </section>
+        
+        <section id="skills">
+            <h2>Skills & Competencies</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Clinical Skills</h3>
+                    <ul>
+                        <li>Crisis intervention & de-escalation</li>
+                        <li>Patient assessment & care planning</li>
+                        <li>Safety monitoring & observation</li>
+                        <li>Therapeutic communication</li>
+                        <li>Patient intake processing</li>
+                        <li>Emotional support provision</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Documentation & Administration</h3>
+                    <ul>
+                        <li>Medical record management</li>
+                        <li>Healthcare administration</li>
+                        <li>HIPAA compliance</li>
+                        <li>Confidential file organization</li>
+                        <li>Microsoft Office proficiency</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Specialized Training</h3>
+                    <ul>
+                        <li>Crisis Prevention certified</li>
+                        <li>BLS (Basic Life Support) certified</li>
+                        <li>Psychology background (B.A.)</li>
+                        <li>Behavioral health interventions</li>
+                        <li>Basic Spanish language skills</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Interpersonal Skills</h3>
+                    <ul>
+                        <li>Team collaboration</li>
+                        <li>Interpersonal communication</li>
+                        <li>Time management</li>
+                        <li>Relationship building</li>
+                        <li>Patient advocacy</li>
+                        <li>Budget management</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section id="experience">
+            <h2>Professional Experience</h2>
+            
+            <div class="experience-item">
+                <h3>Behavioral Health Technician</h3>
+                <div class="experience-meta">
+                    St. John's Episcopal Hospital | June 2021 - Present
+                </div>
+                <ul>
+                    <li>Collaborate with interdisciplinary healthcare teams to assess patients' needs and develop individualized care plans tailored to each patient's unique circumstances</li>
+                    <li>Work alongside healthcare professionals to de-escalate and resolve crisis situations, maintaining a safe and therapeutic environment</li>
+                    <li>Process intake for all new patients in the Behavioral Health Unit, facilitating smooth transitions and ensuring comprehensive initial assessments</li>
+                    <li>Manage medical record filing and storage systems for patient belongings, maintaining strict confidentiality and organizational standards</li>
+                    <li>Cultivate positive therapeutic relationships with patients, providing consistent emotional support that helps reduce stress levels and promote recovery</li>
+                </ul>
+            </div>
+            
+            <div class="experience-item">
+                <h3>Finance Director</h3>
+                <div class="experience-meta">
+                    Hunter College | August 2018 - August 2020
+                </div>
+                <ul>
+                    <li>Led a 3-person team in allocating and managing a $200,000+ annual budget with high efficiency and accountability</li>
+                    <li>Streamlined budgeting processes, including creating and organizing account lines and adding new staff to payroll systems</li>
+                    <li>Curated a diverse artist pool for Hunter College's 2021 Spring Concert, negotiating pricing and securing vendor contracts</li>
+                    <li>Coordinated student events on and off-campus by liaising with external vendors and administrative offices</li>
+                    <li>Documented and stored comprehensive records of all financial transactions including contracts, purchase orders, receipts, and requisition forms</li>
+                </ul>
+            </div>
+            
+            <div class="experience-item">
+                <h3>Inventory Specialist</h3>
+                <div class="experience-meta">
+                    Best Buy | August 2017 - November 2019
+                </div>
+                <ul>
+                    <li>Collaborated with shipping carriers to facilitate efficient incoming and outgoing mail and order transactions</li>
+                    <li>Recorded and tracked all products in the store, managing product counts and organization systems</li>
+                    <li>Greeted customers and worked with team members to develop optimal strategies for customer service excellence</li>
+                    <li>Achieved 100% accuracy during the annual physical inventory audit, demonstrating exceptional attention to detail</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section id="credentials">
+            <h2>Credentials & Certifications</h2>
+            
+            <div class="cert-item">
+                <h3>Bachelor of Arts in General Psychology</h3>
+                <div class="experience-meta">
+                    Hunter College | August 2015 - May 2020
+                </div>
+                <p>Minor in Music</p>
+            </div>
+            
+            <div class="cert-item">
+                <h3>Professional Certifications</h3>
+                <ul>
+                    <li>BLS (Basic Life Support) Certification - Current</li>
+                    <li>Crisis Prevention Certification</li>
+                </ul>
+            </div>
+            
+            <div class="cert-item">
+                <h3>Additional Skills & Training</h3>
+                <ul>
+                    <li>Basic Spanish language proficiency</li>
+                    <li>Microsoft Office Suite (Word, Excel, PowerPoint)</li>
+                    <li>Healthcare Administration</li>
+                    <li>Budget Management (managed $200,000+ budgets)</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section id="case-studies">
+            <h2>Professional Highlights</h2>
+            <p style="margin-bottom: 1.5rem; color: #666;"><em>All patient information has been de-identified to maintain confidentiality and HIPAA compliance.</em></p>
+            
+            <div class="case-study">
+                <span class="case-label">Crisis De-escalation</span>
+                <h3>Managing a High-Risk Elopement Attempt</h3>
+                <p>I worked with a patient who was experiencing command hallucinations and actively attempting to leave the unit. Rather than blocking their path or immediately calling security, I maintained a safe distance and used reflective listening to acknowledge their distress. By validating their feelings with statements like "It sounds like you feel you need to leave to be safe right now," I was able to help them identify their underlying need for security. This approach successfully shifted the situation from an immediate elopement risk to a calmer discussion at the nurses' station, preventing the need for a Code Gray response while keeping the patient engaged with treatment.</p>
+            </div>
+            
+            <div class="case-study">
+                <span class="case-label">Behavioral Intervention</span>
+                <h3>Helping a Patient Re-engage with Group Therapy</h3>
+                <p>I worked with a patient on the unit who had severe social anxiety and consistently avoided group sessions. Rather than insisting they attend immediately, I implemented a graduated exposure approach by breaking participation into smaller, achievable steps. We began with brief check-ins outside the group room, progressed to having them sit in the doorway to observe, and eventually worked up to participating for the first five minutes. Over three shifts, their attendance improved by 40%. This experience demonstrated how meeting patients where they are and building gradually can be more effective than direct confrontation.</p>
+            </div>
+            
+            <div class="case-study">
+                <span class="case-label">Collaborative Care</span>
+                <h3>Recognizing Early Warning Signs in the ED</h3>
+                <p>During a shift in the ED, I was observing a patient who was becoming increasingly agitated. I identified subtle behavioral changes—increased pacing, tension in body language, and shifts in eye contact—that indicated potential escalation. I immediately communicated these observations to the RN and attending psychiatrist, which enabled the team to adjust the patient's PRN medication within approximately 15 minutes. This early intervention successfully prevented the situation from escalating to a point where physical restraints would have been necessary. The outcome reinforced the critical importance of close observation and timely interdisciplinary communication in maintaining patient safety.</p>
+            </div>
+        </section>
+        
+        <section id="contact">
+            <h2>Contact Information</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">@</div>
+                    <div>
+                        <strong>Email</strong><br>
+                        zico.smith9@gmail.com
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">☎</div>
+                    <div>
+                        <strong>Phone</strong><br>
+                        (347) 397-3728
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">in</div>
+                    <div>
+                        <strong>LinkedIn</strong><br>
+                        linkedin.com/in/zico-smith-44b585169
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div>
+                        <strong>Location</strong><br>
+                        Queens Village, NY 11429
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <p>&copy; <span id="year"></span> Zico Smith | Professional Portfolio</p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem;">All patient information presented has been de-identified in compliance with HIPAA regulations.</p>
+    </footer>
+    
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+    </script>
+</body>
+</html>
